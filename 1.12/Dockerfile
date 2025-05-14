@@ -15,6 +15,8 @@ WORKDIR /app
 # Copy the project
 COPY ./example-frontend .
 
+ENV REACT_APP_BACKEND_URL="http://localhost:8080"
+
 # Install packages 
 RUN npm install 
 
