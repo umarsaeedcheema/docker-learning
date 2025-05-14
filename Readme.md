@@ -1,5 +1,18 @@
 # Solutions: 
 
+# 1.9 
+touch text.log
+docker run -v "$(pwd):text.log:/usr/src/app/text.log" <image-name>
+
+# 1.11 
+## build the image : 
+docker build . -t spring-example
+
+## run the image : 
+docker run -p 127.0.0.1:3000:8080 spring-example
+
+go to localhost:3000
+
 # 1.12 -> Dockerfile
 Run with exposing and publishing the port 
 
