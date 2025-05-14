@@ -1,8 +1,9 @@
-Solutions: 
-1.12 -> Dockerfile
+# Solutions: 
+
+# 1.12 -> Dockerfile
 Run with exposing and publishing the port 
 
-1.14
+# 1.14
 frontend runs at 5000:5001
 backend runs at 8080:8080
 
