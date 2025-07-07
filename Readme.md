@@ -4,6 +4,9 @@
 touch text.log
 docker run -v "$(pwd):text.log:/usr/src/app/text.log" <image-name>
 
+# 1.10
+docker run -p 127.0.0.1:8080:8080 web-server
+
 # 1.11 
 ## build the image : 
 docker build . -t spring-example
@@ -22,3 +25,5 @@ backend runs at 8080:8080
 
 backend accepts requests from 5000 due to CORS, from the browser and then port forwards it to the container
 the front-end container is not making the request to the backend, its the browser
+
+# 2.1
