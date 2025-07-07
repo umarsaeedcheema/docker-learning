@@ -1,0 +1,18 @@
+services:
+  example-frontend:
+    image: example-frontend
+    ports:
+      - 5000:5001
+    container_name: example-frontend
+
+  example-backend:
+    image: example-backend
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - 8080:8080
+    container_name: example-backend
+
+  redis:
+    image: redis:latest
+    container_name: redis
