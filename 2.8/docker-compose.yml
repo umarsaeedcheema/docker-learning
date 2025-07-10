@@ -1,0 +1,45 @@
+services:
+  frontend:
+    image: example-frontend
+    container_name: frontend
+
+  backend:
+    image: example-backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    container_name: backend
+
+  redis:
+    image: redis:latest
+    container_name: redis
+
+  db: 
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+  nginx: 
+    image: nginx
+    volumes: 
+      - ./nginx.config:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - backend
+    container_name: nginx
+
+  
+    
+volumes:
+  database:

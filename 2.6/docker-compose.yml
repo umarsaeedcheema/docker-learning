@@ -1,0 +1,31 @@
+services:
+  example-frontend:
+    image: example-frontend
+    ports:
+      - 5000:5001
+    container_name: example-frontend
+
+  example-backend:
+    image: example-backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 8080:8080
+    container_name: example-backend
+
+  redis:
+    image: redis:latest
+    container_name: redis
+
+  db: 
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
