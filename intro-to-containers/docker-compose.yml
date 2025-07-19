@@ -1,0 +1,14 @@
+services: 
+  test: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - myapp:/my-new-root
+    command: ["bash"]
+    stdin_open: true
+    tty: true
+    container_name: docker-host
+
+volumes:
+  myapp:
